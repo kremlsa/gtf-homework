@@ -10,7 +10,6 @@ import (
 
 func main() {
 	app := fiber.New()
-	config.Init()
 	appConf := config.NewAppConfig()
 	pages.FirstHandler(app)
 

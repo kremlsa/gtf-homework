@@ -11,20 +11,16 @@ import (
 const ServerName string = "AppServer"
 const ServerPort int = 3000
 
-func Init() {
-	if err := godotenv.Load(); err != nil {
-		log.Println("No .env file")
-		return
-	}
-	log.Println(".env file loaded")
-}
-
 type AppConfig struct {
 	ServerName string
 	Port       int
 }
 
 func NewAppConfig() *AppConfig {
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file")
+	}
+	log.Println(".env file loaded")
 	return &AppConfig{
 		ServerName: getString("SERVER_NAME", ServerName),
 		Port:       getInt("SERVER_PORT", ServerPort),
