@@ -2,17 +2,10 @@ package pages
 
 import "github.com/gofiber/fiber/v2"
 
-type PageHandler struct {
-	router fiber.Router
+func PageHandler(router fiber.Router) {
+	router.Get("/", firstApi)
 }
 
-func FirstHandler(router fiber.Router) {
-	h := &PageHandler{
-		router: router,
-	}
-	h.router.Get("/", h.firstApi)
-}
-
-func (p *PageHandler) firstApi(c *fiber.Ctx) error {
+func firstApi(c *fiber.Ctx) error {
 	return c.SendString("response")
 }

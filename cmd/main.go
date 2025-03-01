@@ -11,7 +11,7 @@ import (
 func main() {
 	app := fiber.New()
 	appConf := config.NewAppConfig()
-	pages.FirstHandler(app)
+	pages.PageHandler(app)
 
 	app.Listen(fmt.Sprintf(":%d", appConf.Port))
 }

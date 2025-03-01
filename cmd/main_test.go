@@ -22,7 +22,7 @@ func TestMain(t *testing.T) {
 	}
 	defer cmd.Process.Kill()
 
-	time.Sleep(time.Second * 10)
+	time.Sleep(time.Second * 5)
 
 	resp, err := http.Get("http://localhost:3000/")
 	if err != nil {
