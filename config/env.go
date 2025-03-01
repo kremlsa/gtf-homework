@@ -43,6 +43,7 @@ func getInt(key string, defaultValue int) int {
 	value := os.Getenv(key)
 	i, err := strconv.Atoi(value)
 	if err != nil {
+		log.Println("wrong value for server port")
 		return defaultValue
 	}
 	return i
