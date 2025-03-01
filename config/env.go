@@ -8,6 +8,9 @@ import (
 	"github.com/joho/godotenv"
 )
 
+const ServerName string = "AppServer"
+const ServerPort int = 3000
+
 func Init() {
 	if err := godotenv.Load(); err != nil {
 		log.Println("No .env file")
@@ -23,8 +26,8 @@ type AppConfig struct {
 
 func NewAppConfig() *AppConfig {
 	return &AppConfig{
-		ServerName: getString("SERVER_NAME", "AppServer"),
-		Port:       getInt("SERVER_PORT", 3000),
+		ServerName: getString("SERVER_NAME", ServerName),
+		Port:       getInt("SERVER_PORT", ServerPort),
 	}
 }
 
