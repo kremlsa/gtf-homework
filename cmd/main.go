@@ -17,11 +17,11 @@ func main() {
 
 	// Создаём логгер
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
-
-	app := fiber.New()
-
 	// Добавляем конфигурацию приложения
 	appConf := configs.NewAppConfig()
+
+	// Инициализируем приложение
+	app := fiber.New()
 
 	// Подключаем логгер
 	app.Use(slogfiber.New(logger))
