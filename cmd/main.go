@@ -27,7 +27,7 @@ func main() {
 	app.Use(slogfiber.New(logger))
 	app.Use(recover.New())
 
-	pages.PageHandler(app, logger)
+	pages.PageHandler(app)
 
 	app.Listen(fmt.Sprintf(":%d", appConf.Port))
 }
