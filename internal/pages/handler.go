@@ -4,11 +4,16 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+type Category string
+
 func PageHandler(router fiber.Router) {
-	router.Get("/", firstApi)
+	router.Get("/", homeApi)
 }
 
-func firstApi(c *fiber.Ctx) error {
-
-	return c.SendString("response")
+func homeApi(c *fiber.Ctx) error {
+	categories := []Category{"Еда", "Животные", "Машины", "Спорт", "Музыка", "Технологии", "Прочее"}
+	data := struct {
+		Categories []Category
+	}{Categories: categories}
+	return c.Render("home", data)
 }
