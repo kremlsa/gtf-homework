@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет</title>
+    <style>
+        .category {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 15px;
+            background-color: #777777;
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="categories">
+        {{ range .Categories }}
+        <span class="category">#{{ . }}</span>
+        {{ end }}
+    </div>
+
+</body>
+
+</html>
